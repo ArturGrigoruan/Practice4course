@@ -1,0 +1,39 @@
+{
+  "name": "grigoryan",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000p\u0000r\u0000a\u0000c\u0000t\u0000i\u0000c\u0000e\u0000\r\u0000 \u0000#\u0000 \u0000p\u0000r\u0000a\u0000c\u0000t\u0000i\u0000c\u0000e\u0000\r\u0000 \u0000#\u0000 \u0000p\u0000r\u0000a\u0000c\u0000t\u0000i\u0000c\u0000e\u0000\r\u0000 \u0000#\u0000 \u0000p\u0000r\u0000a\u0000c\u0000t\u0000i\u0000c\u0000e\u0000\r\u0000 \u0000",
+  "main": "students.js",
+  "scripts": {
+    "build": "webpack serve --mode development",
+    "start": "webpack-dev-server --mode development",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArturGrigoruan/Practice4course.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArturGrigoruan/Practice4course/issues"
+  },
+  "homepage": "https://github.com/ArturGrigoruan/Practice4course#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "vue": "^2.6.14",
+    "vue-axios": "^3.4.0",
+    "vue-loader": "^15.9.8",
+    "vue-router": "^3.5.3",
+    "vue-template-compiler": "^2.6.14",
+    "vuex": "^3.6.2",
+    "vuex-persistedstate": "^4.1.0",
+    "webpack": "^5.64.0",
+    "webpack-cli": "^4.9.1"
+  },  
+  "devDependencies": {
+    "vue-loader": "^15.9.8",
+    "vue-template-compiler": "^2.6.14",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.4.0"
+  }
+}

@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <h3>Список студентов</h3>
-            <p>Количество студентов: {{getCount}}</p>  
+    <div> 
         <div>
             <p>Поиск</p>
             <input type="text" v-model="filter_name" placeholder="Введите фамилию">
@@ -12,7 +10,6 @@
                 <th>ФИО</th>
                 <th>Група</th>
                 <th>Фото</th>
-                <th>ПР</th>
                 <th>Оценка</th>
                 <th>Удалить</th>
             </tr>
@@ -31,13 +28,11 @@
                  </select>
                 </td>
                 <td><img  :src="student.photo" class="stud_photo" alt=""></td>
-                <td v-if="nowChange != student._id"><input type="checkbox"  v-model="student.isDonePr"></td>
-                <td v-if="nowChange == student._id"><input type="checkbox" v-model="changePr"></td>
                 <td v-if="nowChange != student._id">{{student.mark}}</td>
                 <td v-if="nowChange == student._id"><input v-model="changeMark"></td>
                 <td><a v-on:click.prevent="deleteStud(student._id)" v-show="student.group==getCurrentUser.group">Удалить</a></td>
-                <button v-on:click="changeStud(student._id)">EDIT</button>
-                <button v-on:click="updateStud">Update</button>    
+                <button v-on:click="changeStud(student._id)">Изменить</button>
+                <button v-on:click="updateStud">Обновить</button>    
             </tr>
               
         </table>
@@ -49,12 +44,10 @@
                 <option value="1">RPZ 18 1/9</option>
                 <option value="2">RPZ 18 2/9</option>
             </select>            
-            ПР<input v-model.trim="add_pr1" type="checkbox">
             <input v-model.trim="add_mark" placeholder="Введите оценку"  >
-            <button v-on:click="addStud">Add</button>  
-           
+            <button v-on:click="addStud">Добавить</button>             
         </div> 
-               
+         <p>Количество студентов: {{getCount}}</p>    
     </div>
 </template>
 
@@ -72,7 +65,6 @@ export default{
         add_name: '',
         add_group: '0',
         add_photo: '0',
-        add_pr1: false,
         add_mark:'',
         add_photo:'',
         fs_curr_num:'',
@@ -80,7 +72,6 @@ export default{
         nowChange:'',
         changeName:"",
         changeGroup:'',
-        changePr:'',
         changeMark:'',
 
      } 
@@ -121,14 +112,12 @@ export default{
              Vue.axios.post("http://46.101.212.195:3000/students",{
                  name: this.add_name,
                  group: this.add_group,                 
-                 isDonePr: this.add_pr1,
                  mark: this.add_mark,
                  photo: this.add_photo,
              })
              .then((response)=>{
                 this.add_name = '';
                 this.add_group = '0';                      
-                this.add_pr1 = '';
                 this.add_mark = ''; 
                 this.add_photo = '0'; 
                  console.log(response.data)
@@ -152,14 +141,12 @@ export default{
                 Vue.axios.put(`http://46.101.212.195:3000/students/${this.nowChange}`,{
                         name: this.changeName,
                         group: this.changeGroup,
-                        isDonePr: this.changePr,
                         mark: this.changeMark,
                     })
                     for(let i=0; i<this.students.length; i++){
                          if(this.students[i]._id == this.nowChange){
                              this.students[i].name=this.changeName
                              this.students[i].group=this.changeGroup
-                             this.students[i].isDonePr=this.changePr
                              this.students[i].mark=this.changeMark
                          }
                     }

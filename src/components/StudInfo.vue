@@ -7,7 +7,6 @@
             <p>ПІБ: {{student.name}}</p>
             <p>Група: {{student.group}}</p>
             <p>Оцінка: {{student.mark}}</p>
-            <p>{{getCount}}</p> 
         </div>        
     </div>
 </template>
